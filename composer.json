@@ -11,12 +11,12 @@
   "version": "v1.0.0",
   "license": "MIT",
   "require": {
+    "php": ">=7.0.0",
     "topthink/framework": "5.1.*"
   },
   "autoload": {
     "psr-4": {
-      "tpext\\command\\": "src/command/",
-      "tpext\\db\\connector\\": "src/db/connector/"
+      "tpext\\": "src/"
     },
     "files": [
       "src/helper.php",
