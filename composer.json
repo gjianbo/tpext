@@ -1,0 +1,23 @@
+{
+  "name": "pangzi/tpext",
+  "description": "thinkPHP Extend Library",
+  "type": "library",
+  "authors": [
+    {
+      "name": "gjianbo",
+      "email": "gjianbo@qq.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "tpext\\command\\": "src/command/",
+      "tpext\\db\\connector\\": "src/db/connector/"
+    },
+    "files": [
+      "src/helper.php",
+      "src/command.php"
+    ]
+  }
+}
