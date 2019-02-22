@@ -28,3 +28,13 @@ function tpext_pingyin($str, bool $first = true, $separate = '')
     return \tpext\tools\Pingyin::getInstance()->str2py($str, $first, $separate);
 }
 
+
+/**
+ * 使用工具函数
+ * @return \tpext\traits\Singleton|null
+ */
+function tpext_tools()
+{
+    return \tpext\tools\Tools::getInstance();
+}
+

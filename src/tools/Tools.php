@@ -69,7 +69,7 @@ class Tools
      */
     public function getExtMine($ext, $mine = [])
     {
-        $mines = self::getMines();
+        $mines = $this->getMines();
         foreach (is_string($ext) ? explode(',', $ext) : $ext as $e) {
             $mine[] = isset($mines[strtolower($e)]) ? $mines[strtolower($e)] : 'application/octet-stream';
         }
@@ -81,7 +81,7 @@ class Tools
      * @return array
      * @throws LocalCacheException
      */
-    private static function getMines()
+    private function getMines()
     {
         if (empty($mines)) {
             $content = file_get_contents('http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types');
@@ -102,7 +102,7 @@ class Tools
      */
     public function arr2xml($data)
     {
-        return "<xml>" . self::_arr2xml($data) . "</xml>";
+        return "<xml>" . $this->_arr2xml($data) . "</xml>";
     }
 
     /**
@@ -111,13 +111,13 @@ class Tools
      * @param string $content
      * @return string
      */
-    private static function _arr2xml($data, $content = '')
+    private function _arr2xml($data, $content = '')
     {
         foreach ($data as $key => $val) {
             is_numeric($key) && $key = 'item';
             $content .= "<{$key}>";
             if (is_array($val) || is_object($val)) {
-                $content .= self::_arr2xml($val);
+                $content .= $this->_arr2xml($val);
             } elseif (is_string($val)) {
                 $content .= '<![CDATA[' . preg_replace("/[\\x00-\\x08\\x0b-\\x0c\\x0e-\\x1f]/", '', $val) . ']]>';
             } else {
@@ -138,7 +138,7 @@ class Tools
         $entity = libxml_disable_entity_loader(true);
         $data = (array)simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
         libxml_disable_entity_loader($entity);
-        return json_decode(self::arr2json($data), true);
+        return json_decode($this->arr2json($data), true);
     }
 
     /**
@@ -181,7 +181,20 @@ class Tools
     public function get($url, $query = [], $options = [])
     {
         $options['query'] = $query;
-        return self::doRequest('get', $url, $options);
+        return $this->doRequest('get', $url, $options);
+    }
+
+    /**
+     * 以post访问模拟访问
+     * @param string $url 访问URL
+     * @param array $data POST数据
+     * @param array $options
+     * @return bool|string
+     */
+    public function post($url, $data = [], $options = [])
+    {
+        $options['data'] = $data;
+        return $this->doRequest('post', $url, $options);
     }
 
     /**
@@ -191,7 +204,7 @@ class Tools
      * @param array $options 请求参数[headers,data,ssl_cer,ssl_key]
      * @return bool|string
      */
-    protected static function doRequest($method, $url, $options = [])
+    protected function doRequest($method, $url, $options = [])
     {
         try {
             $curl = curl_init();
@@ -244,17 +257,5 @@ class Tools
         }
     }
 
-    /**
-     * 以post访问模拟访问
-     * @param string $url 访问URL
-     * @param array $data POST数据
-     * @param array $options
-     * @return bool|string
-     */
-    public function post($url, $data = [], $options = [])
-    {
-        $options['data'] = $data;
-        return self::doRequest('post', $url, $options);
-    }
 
 }
