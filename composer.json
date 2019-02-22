@@ -9,7 +9,9 @@
     }
   ],
   "version": "v1.0.0",
+  "license": "MIT",
   "require": {
+    "topthink/framework": "5.1.*"
   },
   "autoload": {
     "psr-4": {
