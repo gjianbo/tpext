@@ -28,8 +28,13 @@ class Logger
     {
         if (defined("RUNTIME_PATH")) {
             $this->runtime_path = RUNTIME_PATH;
-        } else {
+        } elseif (function_exists("app")) {
             $this->runtime_path = app()->getRuntimePath();
+        } else {
+            $this->runtime_path = dirname(__FILE__) . '/runtime';
+            if (!file_exists($this->runtime_path)) {
+                mkdir($this->runtime_path, 0777, true);
+            }
         }
     }
 
