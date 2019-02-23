@@ -6,6 +6,10 @@
  * Time: 10:29
  */
 // 注册命令行指令
-\think\Console::addDefaultCommands([
-    'compress' => '\\tpext\command\Compress',
-]);
+$commands = [
+    'compress' => '\\tpext\\command\\Compress'
+];
+if (class_exists('\\think\\swoole\\command\\Swoole')) {
+    $command['swoole:tcpserver'] = '\\tpext\\command\\Tcpserver';
+}
+\think\Console::addDefaultCommands($commands);

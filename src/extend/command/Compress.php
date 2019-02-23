@@ -9,12 +9,10 @@
 namespace tpext\command;
 
 
-use think\App;
 use think\console\Command;
 use think\console\Input;
 use think\console\input\Option;
 use think\console\Output;
-use think\Env;
 
 
 class Compress extends Command

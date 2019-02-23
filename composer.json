@@ -12,11 +12,11 @@
   "license": "MIT",
   "require": {
     "php": ">=7.0.0",
-    "topthink/framework": "5.1.*"
+    "pangzi/phpext": "^1.0"
   },
   "autoload": {
     "psr-4": {
-      "tpext\\": "src/"
+      "tpext\\": "src/extend/"
     },
     "files": [
       "src/helper.php",
