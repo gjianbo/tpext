@@ -9,7 +9,8 @@
 $commands = [
     'compress' => '\\tpext\\command\\Compress'
 ];
+
 if (class_exists('\\think\\swoole\\command\\Swoole')) {
-    $command['swoole:tcpserver'] = '\\tpext\\command\\Tcpserver';
+    $commands['swoole:tcpserver'] = '\\tpext\\command\\Tcpserver';
 }
 \think\Console::addDefaultCommands($commands);

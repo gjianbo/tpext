@@ -28,7 +28,7 @@ class Tcpserver extends Swoole
 
     protected function init()
     {
-        $conf_path = app()->getConfigPath;
+        $conf_path = app()->getConfigPath();
         if (file_exists($conf_path . '/swoole_tcpserver.php')) {
             $this->config = Config::pull('swoole_tcpserver');
         } else {
