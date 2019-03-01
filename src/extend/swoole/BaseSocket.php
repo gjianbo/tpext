@@ -18,6 +18,13 @@ abstract class BaseSocket
      */
     protected $swoole;
 
+    protected $option = [
+        //600秒内未向服务器发送任何数据，此连接将被强制关闭
+        'heartbeat_idle_time' => 600,
+        //每60秒遍历一次
+        'heartbeat_check_interval' => 60,
+    ];
+
 
     /**
      * 支持的响应事件
@@ -33,6 +40,12 @@ abstract class BaseSocket
     public function __construct($host, $port, $mode, $sockType)
     {
         $this->swoole = new SwooleServer($host, $port, $mode, $sockType);
+        // 设置参数
+        if (!empty($this->option)) {
+            $this->swoole->set($this->option);
+        }
+        // 初始化
+        $this->init();
 
         // 设置回调
         foreach ($this->event as $event) {
@@ -40,6 +53,10 @@ abstract class BaseSocket
                 $this->swoole->on($event, [$this, 'on' . $event]);
             }
         }
+    }
+
+    protected function init()
+    {
     }
 
     /**
