@@ -1,9 +1,9 @@
 <?php
 
-namespace phpext\tools;
+namespace helper;
 
 
-use phpext\traits\Singleton;
+use helper\traits\Singleton;
 
 class Pingyin
 {

@@ -6,7 +6,7 @@
  * Time: 17:26
  */
 
-namespace phpext\traits;
+namespace helper\traits;
 
 /**
  * 单例模式

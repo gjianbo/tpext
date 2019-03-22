@@ -6,9 +6,9 @@
  * Time: 10:00
  */
 
-use phpext\tools\Logger;
-use phpext\tools\Pingyin;
-use phpext\tools\Tools;
+use helper\Logger;
+use helper\Pingyin;
+use helper\Tools;
 
 /**
  * 保存内容到文件中

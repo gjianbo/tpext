@@ -9,7 +9,7 @@
 namespace tpext\exception;
 
 use Exception;
-use phpext\tools\Logger;
+use phpext\helper\Logger;
 use think\exception\Handle;
 use think\exception\HttpException;
 

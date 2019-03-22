@@ -6,7 +6,7 @@
  * Time: 18:38
  */
 
-namespace phpext\tools;
+namespace helper;
 
 class Number
 {

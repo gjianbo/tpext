@@ -6,7 +6,7 @@
  * Time: 18:40
  */
 
-namespace phpext\tools;
+namespace helper;
 class Time
 {
     /**

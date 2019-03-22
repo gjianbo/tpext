@@ -12,10 +12,10 @@
 // | github开源项目：https://github.com/zoujingli/WeChatDeveloper
 // +----------------------------------------------------------------------
 
-namespace phpext\tools;
+namespace helper;
 
 
-use phpext\traits\Singleton;
+use helper\traits\Singleton;
 
 /**
  * 网络请求支持

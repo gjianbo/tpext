@@ -6,11 +6,11 @@
  * Time: 17:50
  */
 
-namespace phpext\tools;
+namespace helper;
 
 
+use helper\traits\Singleton;
 use HttpException;
-use phpext\traits\Singleton;
 use think\Exception;
 
 
