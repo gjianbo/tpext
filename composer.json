@@ -15,7 +15,7 @@
   "autoload": {
     "psr-4": {
       "tpext\\": "src/extend/",
-      "phpext\\": "src/tools/"
+      "phpext\\": "src/"
     },
     "files": [
       "src/helper.php",
