@@ -1,7 +1,8 @@
 {
   "name": "pangzi/tpext",
-  "description": "thinkPHP Extend Library",
+  "description": "ThinkPHP 5.1 Extend Library",
   "type": "library",
+  "version": "5.1",
   "authors": [
     {
       "name": "gjianbo",
@@ -10,7 +11,8 @@
   ],
   "license": "MIT",
   "require": {
-    "php": ">=7.0.0"
+    "php": ">=7.0.0",
+    "topthink/framework": "5.1.*"
   },
   "autoload": {
     "psr-4": {
